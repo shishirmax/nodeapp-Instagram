@@ -29,9 +29,15 @@ app.set('view engine','ejs');
 app.get('/',function(req,res){
 	//use the instagram package to get our profile's media
 	//render the home page and pass in the our profile's images
+	
 	ig.user_self_media_recent(function(err, medias, pagination, remaining,limit){
 		res.render('pages/index',{grams: medias });
 	});
+
+	// ig.user_self_feed(function(err, medias, pagination, remaining,limit){
+	// 	res.render('pages/index',{grams: medias });
+	// });
+
 });
 
 //start the server
